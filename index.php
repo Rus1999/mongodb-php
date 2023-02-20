@@ -14,7 +14,7 @@
         $result = $db->users->findOne(array('username'=>$username, 'password'=>$password));
         if (!$result)
         {
-
+            echo "wrong usernad or password";
         }
         else
         {
