@@ -4,9 +4,9 @@
     if (!isset($_SESSION['user']))
     {
         header("Location: index.php");
-
-        $userData = $db->users->findOne(array('_id' => $_SESSION['user']));
     }
+    
+    $userData = $db->users->findOne(array('_id' => $_SESSION['user']));
 ?>
 
 <html>
