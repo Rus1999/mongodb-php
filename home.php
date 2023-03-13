@@ -7,6 +7,20 @@
     }
 
     $userData = $db->users->findOne(array('_id' => $_SESSION['user']));
+
+    function get_recent_tweets($db)
+    {
+        $result = $db->following->find( array( 'follower' => $_SESSION['user']));
+        $result = iterator_to_array($result);
+        $users_following = array();
+        foreach ($result as $entry)
+        {
+            $users_following[] = $entry['user'];
+        }
+        $result = $db->tweets->find( array('authorId' => array('$in' => $users_following)));
+        $recent_tweets = iterator_to_array($result);
+        return $recent_tweets;
+    }
 ?>
 
 <html>

@@ -11,16 +11,9 @@
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $result = $db->users->findOne(array('username'=>$username, 'password'=>$password));
-        if (!$result)
-        {
-            echo "wrong usernad or password";
-        }
-        else
-        {
-            $_SESSION['user'] =  $result->_id;
-            header('Location: home.php');
-        }
+        $result = $db->users->insertOne(array('username'=>$username, 'password'=>$password));
+
+        header('Location: index.php');
     }
 ?>
 
@@ -29,13 +22,13 @@
     <title>Twitter Clone</title>
 </head>
 <body>
-    <form method="post" action="index.php">
+    <form method="post" action="register.php">
         <fieldset>
             <label for="username">Username: </label><input type="text" name="username" id="username"><br>
             <label for="password">Password: </label><input type="password" name="password" id="password"><br>
-            <input type="submit" value="Login">
+            <input type="submit" value="Sign Up">
         </fieldset>
     </form>
-    <a href="register.php">No account? Registor here.</a>
+    <a href="index.php">Already have an account? Login here.</a>
 </body>
 </html>
