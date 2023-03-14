@@ -7,7 +7,7 @@
         header('Location: index.php');
     }
 
-    $userData = $db->user->findOne( array('_id' => $_SESSION['user']));
+    $userData = $db->users->findOne( array('_id' => $_SESSION['user']));
 
     function get_user_list($db)
     {

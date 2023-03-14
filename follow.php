@@ -12,7 +12,7 @@
 
     $db->following->insertOne( array(
         'user' => new MongoDB\BSON\ObjectID("$user_id"),
-        'follwer' => new MongoDB\BSON\ObjectID("$follwer_id"),
+        'follower' => new MongoDB\BSON\ObjectID("$follwer_id")
     ));
 
     header("Location: userlist.php");
